@@ -66,7 +66,7 @@ class Classes extends Component {
                     toast(data.message,{
                       className:"custom-toast",
                       draggable:true,
-                      type:'success',
+                      type:'error',
                       position:toast.POSITION.TOP_RIGHT
                     })
                 }
@@ -78,7 +78,7 @@ class Classes extends Component {
                 toast(data.message,{
                   className:"custom-toast",
                   draggable:true,
-                  type:'success',
+                  type:'error',
                   position:toast.POSITION.TOP_RIGHT
                 })
             }
