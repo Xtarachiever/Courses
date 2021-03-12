@@ -116,7 +116,7 @@ class Classes extends Component {
                             {
                                 courses.map(course=>{
                                     return(
-                                        <tr>
+                                        <tr key={course.id}>
                                             <td>{course.title}</td>
                                             <td>{course.description}</td>
                                             <td>{course.major}</td>
