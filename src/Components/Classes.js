@@ -64,7 +64,7 @@ class Classes extends Component {
                 else{
                     toast(data.success)
                     toast(data.message,{
-                      className:"custom-toast",
+                      className:"error-toast",
                       draggable:true,
                       type:'error',
                       position:toast.POSITION.TOP_RIGHT
@@ -76,7 +76,7 @@ class Classes extends Component {
                     courses:[]
                 })
                 toast(data.message,{
-                  className:"custom-toast",
+                  className:"error-toast",
                   draggable:true,
                   type:'error',
                   position:toast.POSITION.TOP_RIGHT
