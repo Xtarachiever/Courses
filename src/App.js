@@ -1,5 +1,5 @@
 import './App.css';
-import Classes from './Components/Classes'
+import Classes from './Components/Classes';
 
 function App() {
   return (

@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 import {ToastContainer,toast} from 'react-toastify';
+import { Nav, Navbar, NavbarToggler, Collapse, NavbarBrand, NavItem } from 'reactstrap';
+import '../App.css'
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
@@ -8,7 +10,8 @@ class Classes extends Component {
         super(props);
         this.state={
             files:[],
-            courses:[]
+            courses:[],
+            isNavOpen:false
         }
     }
     fileChanger=async (e)=>{
@@ -85,23 +88,41 @@ class Classes extends Component {
 
         })
     }
+    toggleNav=()=>{
+        this.setState({
+            isNavOpen:!this.state.isNavOpen
+        });
+    }
     render(){
         const {courses} =this.state
         return (
-            <div className="all container">
-                <p>Classes</p>
+            <div className="all container align-items-center justify-content-center">
                 <ToastContainer draggable={false} autoClose={3000}/>
-                <div className="upload" className="row mb-3 align-items-center justify-content-center">
-                    <div className="col-sm-3 mr-auto">
-                        <button className="btn-lg" onClick={this.downloader}>Downloader</button>
-                    </div>
-                    <div className="col-sm-4 mt-1">
-                        <input type="file" name="courses" id="courses" onChange={this.fileChanger}/>
-                    </div>
-                    <div className="col-sm-3 ml-auto mt-1" >
-                        <button onClick={this.fileUploader} className="btn-lg">Upload</button>
-                    </div>
-                </div>
+                    <Navbar dark expand="md" className="main">
+                        <div className="container">
+                            <NavbarBrand className="mr-auto"><p style={{color:'black'}}>Classes</p></NavbarBrand>
+                            <NavbarToggler onClick={this.toggleNav} className="bg-dark navbar-dark"/>
+                            <Collapse isOpen={this.state.isNavOpen} navbar>
+                                <Nav className="nav bg-light navbar-light mt-3 ml-auto">
+                                    <NavItem>
+                                    <div className="col-sm-3 mr-auto">
+                                        <button className="btn-sm" onClick={this.downloader}>Downloader</button>
+                                    </div>
+                                    </NavItem>
+                                    <NavItem>
+                                    <div className="col-sm-4">
+                                        <input type="file" name="courses" id="courses" onChange={this.fileChanger}/>
+                                    </div>
+                                    </NavItem>
+                                    <NavItem>
+                                    <div className="col-sm-3" >
+                                        <button onClick={this.fileUploader} className="btn-sm">Upload</button>
+                                    </div>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                        </div>
+                    </Navbar>
                 <div className="table-responsive">
                     <table className="table table-striped">
                         <thead>
